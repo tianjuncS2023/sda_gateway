@@ -1,0 +1,22 @@
+server:
+  port: 8088
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: payment_route
+          uri: http://localhost:8090
+          predicates:
+            - Path=/payment/**
+          filters:
+            - RewritePath=/payment/(?<segment>.*), /payment/$\{segment}
+#        - id: add_request_header_route
+#          uri: http://localhost:8123
+#          predicates:
+#            - Path=/api/**
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: trace
