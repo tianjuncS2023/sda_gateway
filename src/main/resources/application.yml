@@ -14,63 +14,63 @@ spring:
         - DedupeResponseHeader=Vary Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_FIRST
       routes:
         - id: user_route
-          uri: https://6bbd-73-63-240-26.ngrok-free.app/api
+          uri: https://b756-73-63-240-26.ngrok-free.app/api
           predicates:
             - Path=/user/**
           filters:
-            - RewritePath=/user/(?<segment>.*), /user/$\{segment}
+            - RewritePath=/user/(?<segment>.*), /api/user/$\{segment}
 
         - id: product_route
-          uri: https://6bbd-73-63-240-26.ngrok-free.app/api
+          uri: https://b756-73-63-240-26.ngrok-free.app/api
           predicates:
             - Path=/products/{id}, /products, /products/upload
           filters:
-            - RewritePath=/products/(?<segment>.*), /products/$\{segment}
+            - RewritePath=/products/(?<segment>.*), /api/products/$\{segment}
 
         - id: imageupload_route
-          uri: https://6bbd-73-63-240-26.ngrok-free.app/api
+          uri: https://b756-73-63-240-26.ngrok-free.app/api
           predicates:
-            - Path=/image-upload/**
+            - Path=/file/**
           filters:
-            - RewritePath=/image-upload/(?<segment>.*), /image-upload/$\{segment}
+            - RewritePath=/file/(?<segment>.*), /api/file/$\{segment}
 
         - id: recommendation_route
           uri: https://42fc-209-129-244-192.ngrok-free.app/api
           predicates:
             - Path=/recommendations/**
           filters:
-            - RewritePath=/recommendations/(?<segment>.*), /recommendations/$\{segment}
+            - RewritePath=/recommendations/(?<segment>.*), /api/recommendations/$\{segment}
 
         - id: saveview_route
-          uri: https://42fc-209-129-244-192.ngrok-free.app
+          uri: https://42fc-209-129-244-192.ngrok-free.app/api
           predicates:
             - Path=/interactions/**
           filters:
-            - RewritePath=/interactions/(?<segment>.*), /interactions/$\{segment}
+            - RewritePath=/interactions/(?<segment>.*), /api/interactions/$\{segment}
 
         - id: chat_route
-          uri: http://172.29.94.150:8081
+          uri: http://localhost:8081
           predicates:
             - Path=/products/chat
           filters:
             - RewritePath=/products/chat/(?<segment>.*), /products/chat/$\{segment}
 
         - id: payment_route
-          uri: http://172.20.215.68:8090
+          uri: http://localhost:8090
           predicates:
             - Path=/payment/**
           filters:
             - RewritePath=/payment/(?<segment>.*), /payment/$\{segment}
 
         - id: account_route
-          uri: http://172.20.215.68:8090
+          uri: http://localhost:8090
           predicates:
             - Path=/account/**
           filters:
             - RewritePath=/account/(?<segment>.*), /account/$\{segment}
 
         - id: orders_route
-          uri: http://172.29.93.142:8088
+          uri: http://localhost:8091
           predicates:
             - Path=/orders/**
           filters:
