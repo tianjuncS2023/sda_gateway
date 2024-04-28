@@ -57,14 +57,14 @@ spring:
 
 
         - id: payment_route
-          uri: https://piglet-eager-generally.ngrok-free.app
+          uri: http://localhost:8090
           predicates:
             - Path=/payment/**
           filters:
             - RewritePath=/payment/(?<segment>.*), /payment/$\{segment}
 
         - id: account_route
-          uri: https://piglet-eager-generally.ngrok-free.app
+          uri: http://localhost:8090
           predicates:
             - Path=/account/**
           filters:
