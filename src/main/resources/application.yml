@@ -51,9 +51,10 @@ spring:
         - id: chat_route
           uri: http://localhost:8081
           predicates:
-            - Path=/products/chat
+            - Path=/messages/**
           filters:
-            - RewritePath=/products/chat/(?<segment>.*), /products/chat/$\{segment}
+            - RewritePath=/messages/(?<segment>.*), /messages/$\{segment}
+
 
         - id: payment_route
           uri: http://localhost:8090
