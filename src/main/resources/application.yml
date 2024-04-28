@@ -42,11 +42,11 @@ spring:
             - RewritePath=/recommendations/(?<segment>.*), /api/recommendations/$\{segment}
 
         - id: saveview_route
-          uri: https://42fc-209-129-244-192.ngrok-free.app/api
+          uri: https://42fc-209-129-244-192.ngrok-free.app/
           predicates:
-            - Path=/interactions/**
+            - Path=/interactions/view/**
           filters:
-            - RewritePath=/interactions/(?<segment>.*), /api/interactions/$\{segment}
+            - RewritePath=/interactions/view/(?<segment>.*), /api/interactions/view/$\{segment}
 
         - id: chat_route
           uri: http://localhost:8081
