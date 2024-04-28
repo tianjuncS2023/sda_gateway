@@ -18,21 +18,21 @@ spring:
           predicates:
             - Path=/user/**
           filters:
-            - RewritePath=/user/(?<segment>.*), /api/user/$\{segment}
+            - RewritePath=/user/(?<segment>.*), /user/$\{segment}
 
         - id: product_route
           uri: https://b756-73-63-240-26.ngrok-free.app/
           predicates:
             - Path=/products/{id}, /products, /products/upload
           filters:
-            - RewritePath=/products/(?<segment>.*), /api/products/$\{segment}
+            - RewritePath=/products/(?<segment>.*), /products/$\{segment}
 
         - id: imageupload_route
           uri: https://b756-73-63-240-26.ngrok-free.app/
           predicates:
             - Path=/file/**
           filters:
-            - RewritePath=/file/(?<segment>.*), /api/file/$\{segment}
+            - RewritePath=/file/(?<segment>.*), /file/$\{segment}
 
         - id: recommendation_route
           uri: https://42fc-209-129-244-192.ngrok-free.app/api
