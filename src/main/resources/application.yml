@@ -55,7 +55,6 @@ spring:
           filters:
             - RewritePath=/messages/(?<segment>.*), /messages/$\{segment}
 
-
         - id: payment_route
           uri: http://localhost:8090
           predicates:
@@ -76,6 +75,13 @@ spring:
             - Path=/orders/**
           filters:
             - RewritePath=/orders/(?<segment>.*), /orders/$\{segment}
+
+        - id: bid_route
+          uri: http://localhost:8091
+          predicates:
+            - Path=/bid/**
+          filters:
+            - RewritePath=/bid/(?<segment>.*), /bid/$\{segment}
 
 logging:
   level:
